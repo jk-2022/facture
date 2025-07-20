@@ -10,7 +10,7 @@ from screens.chambrescreen.chambreform import ChambreForm
 path=AllPath()
 path_data=path.path_data()
 
-DB_PATH=os.path.join(path_data,"rapport.db")
+DB_PATH=os.path.join(path_data,"eau.db")
 ARCHIVES_PATH=path.path_generated_docs()
 
 class ChambresView(View):
