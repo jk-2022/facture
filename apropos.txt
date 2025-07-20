@@ -1,0 +1,18 @@
+------------------------Rapport Activité---------------------
+
+À propos de l'application
+Notre application est une solution numérique innovante dédiée au recensement, au suivi et à la rédaction de rapports sur les forages hydrauliques. Conçue pour les agents de terrain, les techniciens, les ONG, les institutions publiques et privées intervenant dans le secteur de l'eau, elle facilite la collecte structurée des données relatives aux forages (localisation, type, profondeur, débit, état de fonctionnement, etc.).
+
+Grâce à une interface simple et intuitive, l’utilisateur peut rapidement :
+
+Enregistrer les informations techniques et géographiques de chaque forage ;
+
+Ajouter des photos, des coordonnées GPS et des remarques ;
+
+Générer automatiquement des rapports quotidiens, hebdomadaires ou mensuels au format PDF, DOCX ou CSV ;
+
+Suivre l’évolution et l’état des forages recensés à travers des tableaux de bord et des filtres personnalisés.
+
+L’application optimise le temps de travail, assure une traçabilité complète des interventions, et garantit une meilleure qualité des données pour la planification et la prise de décision.
+
+Elle est utilisable aussi bien sur ordinateur que sur smartphone Android, même dans des environnements à connectivité limitée.
