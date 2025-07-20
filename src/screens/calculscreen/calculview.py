@@ -12,6 +12,8 @@ class CalculView(View):
         self.page=page
         self.padding=0
 
+
+        self.btn_generer_all=ElevatedButton("Générer Toutes les factures",on_click= self.show_confirm_all_invoice)
         self.info_fact_cnt=Column( )
         self.my_table=Column(
             expand=True,
@@ -37,7 +39,7 @@ class CalculView(View):
                         self.my_table,
                         Row(
                             [
-                                ElevatedButton("Générer Toutes les factures",on_click= self.show_confirm_all_invoice)
+                                self.btn_generer_all
                             ],alignment=MainAxisAlignment.CENTER
                         ),
                         Container(height=5)
@@ -63,7 +65,7 @@ class CalculView(View):
         nbre_total_kw=0
         # print("releves",releves)
         for releve in releves:
-            anc, nveau= get_deux_derniers_releves(releve['chambre'])
+            anc, nveau= get_deux_derniers_releves(releve['chambre'], self.facture['id'])
             if anc== None and nveau==None:
                 self.info_fact_cnt.controls.clear()
                 self.info_fact_cnt.controls.append(Text(
@@ -77,10 +79,14 @@ class CalculView(View):
             releve["ancien_valeur"]=anc
             releve["nbre_kw"]=f"{float(nveau)-float(anc)}"
             nbre_total_kw+=float(releve["nbre_kw"])
-
-        prix_u_conso=prix_consommation/nbre_total_kw
-        nbre_chambre=recuperer_nombre_chambre()
-        prix_u_entretien=allocation/float(nbre_chambre)
+        try:
+            prix_u_conso=prix_consommation/nbre_total_kw
+            nbre_chambre=recuperer_nombre_chambre()
+            prix_u_entretien=allocation/float(nbre_chambre)
+        except:
+            self.page.open(SnackBar(Text(f"✅ Impossible de calculer veillez renseigner les données")))
+            self.btn_generer_all.visible=False
+            return False
         
         text_listes=[Row(
                         [

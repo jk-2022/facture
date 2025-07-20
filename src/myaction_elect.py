@@ -140,12 +140,12 @@ def recuperer_releve(facture_id):
         print(e)
 
 
-def get_deux_derniers_releves(chambre):
+def get_deux_derniers_releves(chambre, facture_id):
     conn = sqlite3.connect(path_db, check_same_thread=False)
     c = conn.cursor()
     c.execute(
-        "SELECT date, valeur FROM Releve WHERE chambre = ? ORDER BY date DESC LIMIT 2",
-        (chambre,)
+        "SELECT date, valeur FROM Releve WHERE chambre = ? AND facture_id = ?ORDER BY date DESC LIMIT 2",
+        (chambre,facture_id,)
         )
     resultats = c.fetchall()
     # print(resultats)

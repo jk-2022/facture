@@ -22,8 +22,8 @@ def main(page: Page):
             page.views.append(DataEauView(page))
         elif page.route == "/calcul":
             page.views.append(CalculView(page))
-        # elif page.route == "/update-rapport":
-        #     page.views.append(UpdateRapportView(page))
+        elif page.route == "/chambres":
+            page.views.append(ChambresView(page))
 
         page.update()
 

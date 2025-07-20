@@ -8,6 +8,7 @@ class AcceuilView(View):
         self.expand=True
         self.page=page
         self.padding=0
+        
         bar_cnt=Container(height=60,
                          bgcolor=Colors.BLUE_GREY,
                          
@@ -35,7 +36,7 @@ class AcceuilView(View):
                     [
                         Container(
                             content=Column([
-                                    ListTile(title=Text("Archives"),leading=Icon(name=Icons.ARCHIVE),on_click=self.go_archive),
+                                    ListTile(title=Text("Chambres"),leading=Icon(name=Icons.ARCHIVE),on_click=self.go_chambres),
                                     ListTile(title=Text("A propos"),leading=Icon(name=Icons.INFO), on_click=self.go_apropos),
                                         ]
                             ),
@@ -106,9 +107,9 @@ class AcceuilView(View):
         self.page.client_storage.set('types',"eau")
         self.page.go('/facture')
     
-    def go_archive(self,e):
+    def go_chambres(self,e):
         self.handle_change(e=None)
-        self.page.go('/archive')
+        self.page.go('/chambres')
     
     def go_list_elect(self,e):
         self.page.client_storage.set('types',"electricite")
